@@ -1,0 +1,38 @@
+/* Header / nav with sticky-shrink. Brand-neutral: colors come from the per-site ramp. */
+.ips-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--ips-surface);
+  border-bottom: 1px solid var(--ips-line);
+  transition: box-shadow var(--ips-dur) var(--ips-ease);
+}
+.ips-header__inner {
+  display: flex; align-items: center; gap: var(--ips-space-6);
+  min-height: 76px;
+  transition: min-height var(--ips-dur) var(--ips-ease);
+}
+.ips-header.is-stuck { box-shadow: var(--ips-shadow-1); }
+.ips-header.is-stuck .ips-header__inner { min-height: 60px; }
+
+.ips-header__logo {
+  display: inline-flex; align-items: center;
+  font-weight: 800; font-size: 1.25rem; letter-spacing: -.01em;
+  color: var(--ips-primary); text-decoration: none;
+}
+.ips-header__logo img { height: 34px; width: auto; display: block; }
+
+.ips-nav { display: flex; align-items: center; gap: var(--ips-space-6); margin-left: auto; }
+.ips-nav a { color: var(--ips-ink); text-decoration: none; font-weight: 600; padding: .5rem 0; }
+.ips-nav a:hover { color: var(--ips-primary); }
+
+.ips-header__cta { display: inline-flex; align-items: center; gap: var(--ips-space-4); }
+.ips-header__phone {
+  display: inline-flex; align-items: center; gap: .4em;
+  color: var(--ips-primary); font-weight: 700; text-decoration: none;
+  min-height: var(--ips-tap);
+}
+.ips-header__toggle {
+  display: none; align-items: center; justify-content: center;
+  width: var(--ips-tap); height: var(--ips-tap);
+  border: 1px solid var(--ips-line); border-radius: var(--ips-radius);
+  background: var(--ips-surface); color: var(--ips-primary); cursor: pointer;
+}

@@ -1,0 +1,13 @@
+/* Semantic aliases — components reference THESE, never raw hex.
+   --ips-primary is the one value each site overrides in sites/<site>.css.
+   Default here = TBI navy (the canonical foundation). */
+:root {
+  --ips-primary: #11324F;
+  --ips-primary-ink: #ffffff;
+
+  --ips-surface: #ffffff;
+  --ips-surface-alt: #f6f8fa;
+  --ips-ink: #1a2330;
+  --ips-muted: #5b6673;
+  --ips-line: #e4e8ee;
+}

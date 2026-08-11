@@ -1,0 +1,25 @@
+/* Buttons — shared shell. Primary uses the per-site ramp; CTA is the universal amber. */
+.ips-btn {
+  --_bg: var(--ips-primary);
+  --_fg: var(--ips-primary-ink);
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  min-height: var(--ips-tap);
+  padding: 0 1.25rem;
+  border: 2px solid transparent;
+  border-radius: var(--ips-radius);
+  background: var(--_bg); color: var(--_fg);
+  font: 600 1rem/1 var(--ips-font);
+  text-decoration: none; cursor: pointer;
+  transition: filter var(--ips-dur) var(--ips-ease), transform var(--ips-dur) var(--ips-ease);
+}
+.ips-btn:hover { filter: brightness(1.06); }
+.ips-btn:active { transform: translateY(1px); }
+.ips-btn:focus-visible { outline: 3px solid var(--ips-cta); outline-offset: 2px; }
+.ips-btn svg { width: 1.15em; height: 1.15em; }
+
+/* Universal amber CTA */
+.ips-btn--cta { --_bg: var(--ips-cta); --_fg: var(--ips-cta-label); }
+.ips-btn--cta:hover { --_bg: var(--ips-cta-hover); filter: none; }
+
+/* Quiet/outline variant */
+.ips-btn--ghost { --_bg: transparent; --_fg: var(--ips-primary); border-color: var(--ips-line); }

@@ -1,0 +1,5 @@
+/* LifeInsuranceHIV.com — brand layer ONLY. Set by data-ips-site="lih". */
+html[data-ips-site="lih"] {
+  --ips-primary: #0D4C57;      /* deep teal */
+  --ips-primary-ink: #ffffff;
+}

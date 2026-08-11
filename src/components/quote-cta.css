@@ -1,0 +1,12 @@
+/* Quote-CTA band — the SHELL is shared. The destination + CRM tags stay per-site (config). */
+.ips-quote-cta {
+  background: var(--ips-surface-alt);
+  border: 1px solid var(--ips-line);
+  border-radius: var(--ips-radius);
+  padding: var(--ips-space-8);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--ips-space-6);
+}
+.ips-quote-cta__copy h3 { margin: 0 0 .25rem; color: var(--ips-primary); font-size: 1.35rem; }
+.ips-quote-cta__copy p { margin: 0; color: var(--ips-muted); }
+.ips-quote-cta__actions { display: flex; flex-wrap: wrap; gap: var(--ips-space-4); }

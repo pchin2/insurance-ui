@@ -1,0 +1,5 @@
+/* TheBurialInsurance.com — brand layer ONLY. Set by data-ips-site="tbi". */
+html[data-ips-site="tbi"] {
+  --ips-primary: #11324F;      /* navy */
+  --ips-primary-ink: #ffffff;
+}

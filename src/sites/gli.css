@@ -1,0 +1,5 @@
+/* GuaranteedLifeInsured.com — brand layer ONLY. Set by data-ips-site="gli". */
+html[data-ips-site="gli"] {
+  --ips-primary: #124C3A;      /* evergreen */
+  --ips-primary-ink: #ffffff;
+}

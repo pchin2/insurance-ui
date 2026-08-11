@@ -1,0 +1,5 @@
+/* PlanWithPhil.com — brand layer ONLY. Set by data-ips-site="pwp". */
+html[data-ips-site="pwp"] {
+  --ips-primary: #262D34;      /* charcoal-graphite */
+  --ips-primary-ink: #ffffff;
+}

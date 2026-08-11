@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-ips-site="tbi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>insurance-ui — one bundle, four brands (proof of concept)</title>
+<style>/*{{CSS}}*/</style>
+<style>
+  /* Preview chrome only — NOT part of the shared bundle. */
+  body { margin: 0; }
+  .demo-bar { position: sticky; top: 0; z-index: 200; background: #0f1720; color: #fff; padding: 12px 16px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font: 600 14px/1.3 "Inter", system-ui, sans-serif; }
+  .demo-bar strong { font-weight: 800; margin-right: 6px; }
+  .demo-bar .spacer { flex: 1; }
+  .demo-bar button { min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid #33404d; background: #1b2733; color: #dfe7ef; font: 600 13px/1 "Inter", system-ui, sans-serif; cursor: pointer; }
+  .demo-bar button.active { background: #F0A01E; color: #11324F; border-color: #F0A01E; }
+  .demo-note { max-width: 1160px; margin: 18px auto 0; padding: 0 24px; color: #5b6673; font: 400 14px/1.6 "Inter", system-ui, sans-serif; }
+  .demo-hero { padding: 40px 0 8px; }
+  .demo-hero h1 { margin: 0 0 8px; }
+  .demo-section { padding: 24px 0; }
+  .demo-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: middle; margin: 0 4px; background: var(--ips-primary); }
+</style>
+</head>
+<body>
+
+<div class="demo-bar">
+  <strong>insurance-ui</strong> one bundle → four brands:
+  <button data-site="tbi" class="active">TBI (navy)</button>
+  <button data-site="gli">GLI (evergreen)</button>
+  <button data-site="pwp">PWP (charcoal)</button>
+  <button data-site="lih">LIH (teal)</button>
+  <span class="spacer"></span>
+  <button id="demo-bubble-btn" type="button">Show mobile bubble ▸</button>
+</div>
+
+<div class="ips-scope">
+
+  <!-- HEADER (shared component) -->
+  <header class="ips-header">
+    <div class="ips-container ips-header__inner">
+      <a class="ips-header__logo" href="#" data-ips-text="brand">The Burial Insurance</a>
+      <nav class="ips-nav" aria-label="Primary">
+        <a href="#">Coverage</a>
+        <a href="#">Companies</a>
+        <a href="#">Guides</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div class="ips-header__cta">
+        <a class="ips-header__phone" data-ips-attr="href:phoneHref" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>
+          <span data-ips-text="phone">1-800-000-0000</span>
+        </a>
+        <a class="ips-btn ips-btn--cta" data-ips-text="ctaLabel" data-ips-attr="href:quoteUrl" href="#">Get My Quote</a>
+        <button class="ips-header__toggle" type="button" aria-label="Menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="ips-container">
+    <section class="demo-hero">
+      <h1>Shared components, four independent brands</h1>
+      <p style="color:var(--ips-muted);max-width:66ch">
+        Everything on this page — header, buttons, the quote band, the footer, and the
+        mobile bubble — is drawn from <em>one</em> built bundle. Only the
+        <span class="demo-swatch"></span> primary color, logo text, phone, and CTA change,
+        driven by <code>data-ips-site</code> + a small per-site config. The amber CTA is universal.
+      </p>
+    </section>
+
+    <!-- BUTTONS (shared component) -->
+    <section class="demo-section">
+      <h2>Buttons</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:12px">
+        <a class="ips-btn ips-btn--cta" href="#">Amber CTA (universal)</a>
+        <a class="ips-btn" href="#">Primary (per-site ramp)</a>
+        <a class="ips-btn ips-btn--ghost" href="#">Ghost</a>
+      </div>
+    </section>
+
+    <!-- QUOTE-CTA (shared shell; destination is per-site) -->
+    <section class="demo-section">
+      <h2>Quote / CTA band</h2>
+      <div class="ips-quote-cta" style="margin-top:12px">
+        <div class="ips-quote-cta__copy">
+          <h3>See what you'd qualify for</h3>
+          <p>No medical exam to get an estimate. Takes about two minutes.</p>
+        </div>
+        <div class="ips-quote-cta__actions">
+          <a class="ips-btn ips-btn--cta" data-ips-text="ctaLabel" data-ips-attr="href:quoteUrl" href="#">Get My Quote</a>
+          <a class="ips-btn ips-btn--ghost" data-ips-attr="href:phoneHref" href="#">Call an agent</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (shared component) -->
+  <footer class="ips-footer">
+    <div class="ips-container ips-footer__grid">
+      <div class="ips-footer__col ips-footer__brand">
+        <div style="font-weight:800;font-size:1.15rem;margin-bottom:8px" data-ips-text="brand">The Burial Insurance</div>
+        <p>Independent insurance education and quotes. Licensed agent, honest guidance.</p>
+      </div>
+      <div class="ips-footer__col">
+        <h4>Coverage</h4>
+        <ul><li><a href="#">Final expense</a></li><li><a href="#">Guaranteed issue</a></li><li><a href="#">Term life</a></li></ul>
+      </div>
+      <div class="ips-footer__col">
+        <h4>Learn</h4>
+        <ul><li><a href="#">Guides</a></li><li><a href="#">Company reviews</a></li><li><a href="#">Rates by age</a></li></ul>
+      </div>
+      <div class="ips-footer__col">
+        <h4>Company</h4>
+        <ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy</a></li></ul>
+      </div>
+    </div>
+    <div class="ips-container ips-footer__bar">
+      <span data-ips-text="brand">The Burial Insurance</span> — Serving families since 2008. Licensed in most states.
+    </div>
+  </footer>
+
+  <!-- MOBILE BUBBLE (shared component; shows on ≤860px, or via the button above for this demo) -->
+  <a class="ips-bubble" data-ips-attr="href:quoteUrl" href="#">
+    <span class="ips-bubble__icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-11.3 7.9L3 21l1.6-6.7A8.4 8.4 0 1 1 21 11.5z"/></svg>
+    </span>
+    <span class="ips-bubble__text">Questions? <small data-ips-text="ctaLabel">Get My Quote</small></span>
+    <button class="ips-bubble__close" type="button" aria-label="Dismiss">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </a>
+
+</div>
+
+<div class="demo-note">
+  <strong>What this proves:</strong> the shared CSS + JS load once, <code>data-ips-site</code> swaps the
+  brand, and a per-site config object fills the logo/phone/CTA/quote link. Editing one component in
+  <code>src/</code> and rebuilding updates it for every brand at once. Component styling here is
+  representative for the pipeline demo — the real extraction captures each site's exact current CSS
+  (lift-and-shift, no visual change) before anything goes live.
+</div>
+
+<!-- Per-site config presets (in production, each site sets ONE of these in its own WPCode snippet). -->
+<script>
+  window.IPS_PRESETS = {
+    tbi: { brand: "The Burial Insurance", phone: "1-800-000-0000", quoteUrl: "/quote/", ctaLabel: "Get My Free Quote" },
+    gli: { brand: "Guaranteed Life Insured", phone: "1-800-000-0000", quoteUrl: "/quote/", ctaLabel: "Check My Eligibility" },
+    pwp: { brand: "Plan With Phil", phone: "1-800-000-0000", quoteUrl: "/quote/", ctaLabel: "Get My Quote" },
+    lih: { brand: "Life Insurance & HIV", phone: "1-800-000-0000", quoteUrl: "/quote/", ctaLabel: "See My Options" }
+  };
+  window.IPS_CONFIG = window.IPS_PRESETS.tbi;
+</script>
+
+<!-- The shared bundle (injected inline for this standalone preview). -->
+<script>//{{JS}}</script>
+
+<!-- Preview-only: brand switcher + bubble demo toggle. -->
+<script>
+  (function () {
+    var bar = document.querySelector(".demo-bar");
+    bar.querySelectorAll("button[data-site]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var site = btn.getAttribute("data-site");
+        bar.querySelectorAll("button[data-site]").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        document.documentElement.setAttribute("data-ips-site", site);
+        window.IPS_CONFIG = window.IPS_PRESETS[site];
+        if (window.IPS) window.IPS.reload();
+      });
+    });
+    var bubble = document.querySelector(".ips-bubble");
+    var bbtn = document.getElementById("demo-bubble-btn");
+    bbtn.addEventListener("click", function () {
+      var showing = bubble.style.display === "inline-flex";
+      if (showing) { bubble.style.display = ""; bubble.classList.remove("is-visible"); bbtn.textContent = "Show mobile bubble ▸"; }
+      else { bubble.style.display = "inline-flex"; requestAnimationFrame(function(){ bubble.classList.add("is-visible"); }); bbtn.textContent = "Hide mobile bubble ▾"; }
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+/* Primitive design tokens — the scale. Shared by all four sites, never per-site. */
+:root {
+  /* Spacing scale */
+  --ips-space-1: .25rem;
+  --ips-space-2: .5rem;
+  --ips-space-3: .75rem;
+  --ips-space-4: 1rem;
+  --ips-space-6: 1.5rem;
+  --ips-space-8: 2rem;
+  --ips-space-12: 3rem;
+
+  /* Layout */
+  --ips-maxw: 1160px;
+  --ips-measure: 66ch;
+
+  /* Radii + elevation */
+  --ips-radius: 10px;
+  --ips-radius-pill: 999px;
+  --ips-shadow-1: 0 1px 3px rgba(16,24,40,.08), 0 1px 2px rgba(16,24,40,.06);
+  --ips-shadow-2: 0 12px 30px rgba(16,24,40,.16);
+
+  /* Typography (55–85 audience: 18px body, 1.7 line-height) */
+  --ips-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --ips-fs-body: 1.125rem;
+  --ips-lh-body: 1.7;
+  --ips-fs-h1: 2rem;
+  --ips-fs-h2: 1.5rem;
+
+  /* Motion */
+  --ips-dur: .2s;
+  --ips-ease: cubic-bezier(.4, 0, .2, 1);
+
+  /* Accessibility */
+  --ips-tap: 48px; /* minimum touch target */
+
+  /* Universal action color — the amber CTA is the SAME on all four sites */
+  --ips-cta: #F0A01E;
+  --ips-cta-hover: #d98c10;
+  --ips-cta-label: #11324F;
+}

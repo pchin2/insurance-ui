@@ -1,0 +1,22 @@
+/* Shared responsive behavior — one place, so mobile rules match on all four sites. */
+@media (max-width: 860px) {
+  .ips-nav { display: none; }
+  .ips-header__toggle { display: inline-flex; }
+  .ips-header__phone span { display: none; }
+
+  .ips-header.is-open .ips-nav {
+    display: flex; position: absolute; left: 0; right: 0; top: 100%;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--ips-surface);
+    border-bottom: 1px solid var(--ips-line);
+    padding: var(--ips-space-4) var(--ips-space-6);
+    box-shadow: var(--ips-shadow-1);
+  }
+  .ips-header.is-open .ips-nav a { padding: .75rem 0; border-bottom: 1px solid var(--ips-line); }
+
+  .ips-footer__grid { grid-template-columns: 1fr 1fr; }
+  .ips-quote-cta { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 520px) {
+  .ips-footer__grid { grid-template-columns: 1fr; }
+}

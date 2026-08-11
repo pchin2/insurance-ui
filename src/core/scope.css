@@ -1,0 +1,22 @@
+/* Everything shared is scoped under .ips-scope / .ips-* so nothing leaks into Kadence. */
+.ips-scope, .ips-scope * { box-sizing: border-box; }
+
+.ips-scope {
+  font-family: var(--ips-font);
+  font-size: var(--ips-fs-body);
+  line-height: var(--ips-lh-body);
+  color: var(--ips-ink);
+  background: var(--ips-surface);
+}
+.ips-scope h1 { font-size: var(--ips-fs-h1); line-height: 1.2; color: var(--ips-primary); }
+.ips-scope h2 { font-size: var(--ips-fs-h2); line-height: 1.25; color: var(--ips-primary); }
+
+.ips-container {
+  max-width: var(--ips-maxw);
+  margin-inline: auto;
+  padding-inline: var(--ips-space-6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ips-scope * { transition: none !important; animation: none !important; }
+}
