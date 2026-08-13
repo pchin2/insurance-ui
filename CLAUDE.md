@@ -75,15 +75,52 @@ silently restyle a live site.
 
 ## Install (one-time, per site)
 
-Each site loads the bundle via a single WPCode **Header** snippet and sets its
-`data-ips-site` flag. Claude cannot reach wp-admin from a session, so Phillip or
-the Cowork team installs that one snippet per site. After that, updates propagate
-from this repo automatically — no further per-site editing.
+Each site loads the bundle via a single WPCode **Header** snippet that sets its
+`data-ips-site` flag, defines `window.IPS_CONFIG` (brand, phone, quoteUrl,
+ctaLabel — all per-site), and loads the bundle from a **version-pinned** URL:
+`…@production/dist/ips.min.css?v=X.Y.Z` (and `…ips.min.js?v=X.Y.Z`). Claude cannot
+reach wp-admin from a session, so Phillip or the Cowork team installs that one
+snippet per site. New content flows from `@production` automatically; the `?v=`
+query is what makes browsers pick up a new release immediately — see
+**Bundle versioning & cache-busting** below.
+
+## Bundle versioning & cache-busting (`?v=`)
+
+jsDelivr serves the `@production` bundle with a **7-day browser cache**
+(`Cache-Control: max-age=604800`). Pushing to `production` refreshes the CDN for
+**new** visitors within minutes, but a returning visitor keeps their cached copy
+for up to 7 days — so a component that relies on a **newly added** shared rule can
+render stale/broken for that cohort until their browser cache expires.
+
+The fix: each site's header snippet loads the bundle with a `?v=X.Y.Z` query
+matching the current release. A new `?v=` is a new URL, so every browser —
+including returning visitors — refetches immediately. Content still lives in one
+place (`@production`); the `?v=` is a per-release cache-busting nudge.
+
+**A release is therefore two moves, not one:**
+
+1. **Ship the bundle** — edit `src/`, `npm run build`, commit, tag `vX.Y.Z`, push,
+   move `production` to the tag, purge the jsDelivr CDN.
+2. **Bump the cache-buster** — change `?v=` to the new version in **each site's
+   header snippet** that must reflect the change immediately. One-number edit per
+   site, done in wp-admin.
+
+**Current per-site state:**
+
+- **LIH** — header snippet pinned to `?v=1.0.1` (consumes the shared
+  `.ips-footer--light`). Bump this on every release LIH must reflect.
+- **TBI / GLI / PWP** — still load the unversioned `@production` URL. Fine for
+  now: none of them consumes a newly added shared component yet, so there is
+  nothing stale to bust. When a site starts consuming shared updates, add the
+  same `?v=` to its header snippet at that point.
 
 ## Editing workflow for Claude
 
 1. The change lives in `src/` only — one file.
 2. `npm run build` regenerates `dist/ips.min.css` + `dist/ips.min.js`.
-3. Commit, tag a release, push, purge the CDN cache.
-4. Verify on the **live render** of each affected site (mobile + desktop) before
+3. Commit, tag a release (`vX.Y.Z`), push, move `production` to the tag, purge the
+   jsDelivr CDN cache.
+4. Bump `?v=X.Y.Z` in each affected site's header snippet so returning visitors
+   refetch immediately — see **Bundle versioning & cache-busting**.
+5. Verify on the **live render** of each affected site (mobile + desktop) before
    calling it done.
