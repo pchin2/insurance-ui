@@ -1,5 +1,8 @@
-/* Footer — dark panel painted with the per-site primary ramp. */
-.ips-footer { background: var(--ips-primary); color: var(--ips-primary-ink); margin-top: var(--ips-space-12); }
+/* Footer — DEFAULT variant: dark multi-column, painted with the per-site primary ramp.
+   Phase 0: tuned to TheBurialInsurance.com (light #cdd8e3 text, uppercase 800 white
+   column headings). This is the default footer; use .ips-footer--light for the
+   centered light alternate (LIH). */
+.ips-footer { background: var(--ips-primary); color: #cdd8e3; margin-top: var(--ips-space-12); }
 .ips-footer a { color: var(--ips-primary-ink); opacity: .85; text-decoration: none; }
 .ips-footer a:hover { opacity: 1; text-decoration: underline; }
 
@@ -9,7 +12,7 @@
 }
 .ips-footer__col h4 {
   margin: 0 0 var(--ips-space-4);
-  font-size: .95rem; text-transform: uppercase; letter-spacing: .04em;
+  font-size: .8125rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
   color: var(--ips-primary-ink);
 }
 .ips-footer__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }

@@ -7,7 +7,7 @@
 
   --ips-surface: #ffffff;
   --ips-surface-alt: #f6f8fa;
-  --ips-ink: #1a2330;
+  --ips-ink: #333333;          /* TBI body text */
   --ips-muted: #5b6673;
   --ips-line: #e4e8ee;
 }

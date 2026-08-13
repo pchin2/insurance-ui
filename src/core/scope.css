@@ -1,4 +1,5 @@
-/* Everything shared is scoped under .ips-scope / .ips-* so nothing leaks into Kadence. */
+/* Everything shared is scoped under .ips-scope / .ips-* so nothing leaks into the
+   host theme (Kadence on PWP; wpinsurance-classic-child on TBI/GLI/LIH). */
 .ips-scope, .ips-scope * { box-sizing: border-box; }
 
 .ips-scope {
@@ -8,8 +9,10 @@
   color: var(--ips-ink);
   background: var(--ips-surface);
 }
-.ips-scope h1 { font-size: var(--ips-fs-h1); line-height: 1.2; color: var(--ips-primary); }
-.ips-scope h2 { font-size: var(--ips-fs-h2); line-height: 1.25; color: var(--ips-primary); }
+/* Display headings use the TBI serif stack; body + UI stay Arial. */
+.ips-scope h1 { font-family: var(--ips-font-head); font-size: var(--ips-fs-h1); font-weight: 700; line-height: 1.08; color: var(--ips-primary); }
+.ips-scope h2 { font-family: var(--ips-font-head); font-size: var(--ips-fs-h2); font-weight: 700; line-height: 1.25; color: var(--ips-primary); }
+.ips-scope h3 { font-size: var(--ips-fs-h3); font-weight: 600; line-height: 1.3; color: var(--ips-primary); }
 
 .ips-container {
   max-width: var(--ips-maxw);

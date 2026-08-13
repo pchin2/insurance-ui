@@ -1,18 +1,23 @@
 # Insurance UI — Shared Component System
 
 Single source of truth for shared UI across Phillip Chin's four insurance sites.
-All four run WordPress (Kadence + WPCode + RankMath) and load **one** hosted bundle
+All four run WordPress + WPCode + RankMath + LiteSpeed and load **one** hosted bundle
 (`dist/ips.min.css` + `dist/ips.min.js`) served from this repo. Change a shared
 component here once, and every site updates.
 
 ## The four sites
 
-| Site | Focus | `data-ips-site` | Primary ramp |
-|------|-------|-----------------|--------------|
-| TheBurialInsurance.com (TBI) | Final expense / burial | `tbi` | Navy `#11324F` — **canonical design foundation** |
-| GuaranteedLifeInsured.com (GLI) | Guaranteed-issue life | `gli` | Evergreen `#124C3A` |
-| PlanWithPhil.com (PWP) | Life & disability brokerage | `pwp` | Charcoal-graphite `#262D34` |
-| LifeInsuranceHIV.com (LIH) | Niche life insurance | `lih` | Deep teal `#0D4C57` |
+| Site | Focus | `data-ips-site` | Primary ramp | Theme |
+|------|-------|-----------------|--------------|-------|
+| TheBurialInsurance.com (TBI) | Final expense / burial | `tbi` | Navy `#11324F` — **canonical design foundation** | `wpinsurance-classic-child` |
+| GuaranteedLifeInsured.com (GLI) | Guaranteed-issue life | `gli` | Evergreen `#124C3A` | `wpinsurance-classic-child` |
+| PlanWithPhil.com (PWP) | Life & disability brokerage | `pwp` | Charcoal-graphite `#262D34` | **Kadence** |
+| LifeInsuranceHIV.com (LIH) | Niche life insurance | `lih` | Deep teal `#0D4C57` | `wpinsurance-classic-child` |
+
+**Themes are NOT uniform** (corrected Phase 0): TBI, GLI, and LIH run the custom
+`wpinsurance-classic-child` theme; **only PWP runs Kadence**. Shared CSS must be
+theme-agnostic and stay scoped to `.ips-*`. TBI is the visual/UX reference; PWP is the
+content/SEO reference; this repo is the technical source of truth.
 
 They are four independent brands, businesses, and content libraries that share a
 common visual and structural system. This repo owns the *shared* part only.
@@ -50,7 +55,24 @@ and lead tags are per-site).
   the semantic aliases keep resolving against `:root` and dark panels stay navy.
 - The amber action color `#F0A01E` is **universal** across all four sites. Only
   the primary ramp differs per site.
-- All shared CSS is scoped to `.ips-*` so nothing leaks into Kadence.
+- All shared CSS is scoped to `.ips-*` so nothing leaks into the host theme (Kadence on
+  PWP; `wpinsurance-classic-child` on TBI/GLI/LIH).
+
+## Design foundation (from TBI — Phase 0)
+
+The shared tokens/components are re-based to TheBurialInsurance.com, the approved
+visual/UX gold standard. Decisions now encoded in `src/tokens` + `src/components`:
+
+- **Body / UI font:** Arial (`Arial, Helvetica, sans-serif`).
+- **Display headings:** TBI serif stack — `"Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif` (`--ips-font-head`). H1/H2 serif; H3 sans.
+- **Type scale:** body 18px / 1.7 (`#333`), H1 47px/700, H2 30px/700, H3 21px/600; headings use the primary ramp for color.
+- **Buttons:** square (`--ips-btn-radius: 0`); amber CTA `#F0A01E` on navy label `#11324F`; 48px min tap target; Arial bold.
+- **Universal amber:** `#F0A01E` is the single canonical value (retire `#E8A020` and `#F2A93B`).
+- **Footer:** dark multi-column is the **default** (`.ips-footer`, TBI-styled); the centered light variant (`.ips-footer--light`, LIH) is the alternate.
+- **Primary ramp:** unchanged — one variable per site via `data-ips-site` (TBI navy is the default).
+
+PWP remains the secondary reference for CONTENT/SEO structure only (article layout,
+schema, internal linking), never for visual chrome.
 
 ## Hard guardrails (things that break if ignored)
 

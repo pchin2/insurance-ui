@@ -1,14 +1,15 @@
-/* Buttons — shared shell. Primary uses the per-site ramp; CTA is the universal amber. */
+/* Buttons — shared shell. Primary uses the per-site ramp; CTA is the universal amber.
+   Phase 0: square (0px) per the TBI gold standard; Arial, bold, 48px tap target. */
 .ips-btn {
   --_bg: var(--ips-primary);
   --_fg: var(--ips-primary-ink);
   display: inline-flex; align-items: center; justify-content: center; gap: .5em;
   min-height: var(--ips-tap);
-  padding: 0 1.25rem;
+  padding: 0 1.5rem;
   border: 2px solid transparent;
-  border-radius: var(--ips-radius);
+  border-radius: var(--ips-btn-radius);
   background: var(--_bg); color: var(--_fg);
-  font: 600 1rem/1 var(--ips-font);
+  font: 700 1.0625rem/1 var(--ips-font);
   text-decoration: none; cursor: pointer;
   transition: filter var(--ips-dur) var(--ips-ease), transform var(--ips-dur) var(--ips-ease);
 }

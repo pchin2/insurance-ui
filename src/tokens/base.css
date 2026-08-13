@@ -1,4 +1,5 @@
-/* Primitive design tokens — the scale. Shared by all four sites, never per-site. */
+/* Primitive design tokens — the scale. Shared by all four sites, never per-site.
+   Phase 0: re-based to TheBurialInsurance.com (TBI), the visual/UX gold standard. */
 :root {
   /* Spacing scale */
   --ips-space-1: .25rem;
@@ -14,17 +15,22 @@
   --ips-measure: 66ch;
 
   /* Radii + elevation */
-  --ips-radius: 10px;
+  --ips-radius: 10px;          /* cards, inputs, panels */
+  --ips-btn-radius: 0px;       /* Phase 0 decision: TBI buttons are square */
   --ips-radius-pill: 999px;
   --ips-shadow-1: 0 1px 3px rgba(16,24,40,.08), 0 1px 2px rgba(16,24,40,.06);
   --ips-shadow-2: 0 12px 30px rgba(16,24,40,.16);
 
-  /* Typography (55–85 audience: 18px body, 1.7 line-height) */
-  --ips-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --ips-fs-body: 1.125rem;
+  /* Typography — TBI gold standard.
+     Body/UI = Arial. Display headings = TBI serif stack (Iowan Old Style → Georgia).
+     Audience 55–85: 18px body, 1.7 line-height. */
+  --ips-font: Arial, Helvetica, sans-serif;
+  --ips-font-head: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --ips-fs-body: 1.125rem;     /* 18px */
   --ips-lh-body: 1.7;
-  --ips-fs-h1: 2rem;
-  --ips-fs-h2: 1.5rem;
+  --ips-fs-h1: 2.9375rem;      /* 47px (TBI) */
+  --ips-fs-h2: 1.875rem;       /* 30px (TBI) */
+  --ips-fs-h3: 1.3125rem;      /* 21px (TBI) */
 
   /* Motion */
   --ips-dur: .2s;
