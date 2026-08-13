@@ -1,6 +1,6 @@
 {
   "name": "insurance-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "description": "Single source of truth for shared UI across Phillip Chin's four insurance sites (TBI, GLI, PWP, LIH).",

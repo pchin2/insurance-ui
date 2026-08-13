@@ -19,3 +19,16 @@
   padding-block: var(--ips-space-4);
   font-size: .85rem; opacity: .75;
 }
+
+/* ── v1.0.1 ── Light footer variant. Reproduces LifeInsuranceHIV's current footer.
+   Reusable by any site; link color is tokenized (--ips-footer-link) with LIH's green
+   as the default so LIH renders identically today and other sites can override later.
+   The theme-footer hide rule stays per-site (in the site's WPCode snippet), not here. */
+.ips-footer.ips-footer--light { background: #fff; color: #999; margin-top: 0; border-top: 1px solid rgba(0,0,0,.07); padding: 48px 16px 16px; text-align: center; font-family: Arial, Helvetica, sans-serif; }
+.ips-footer--light .ips-footer__inner { max-width: 1100px; margin: 0 auto; }
+.ips-footer--light .ips-footer__links { margin: 0 0 20px; padding: 0; list-style: none; }
+.ips-footer--light .ips-footer__links li { display: inline-block; }
+.ips-footer--light .ips-footer__links a { color: var(--ips-footer-link, #017F59); font-size: 17px; font-weight: 400; text-decoration: underline; opacity: 1; padding: 0 8px; line-height: 1.9; }
+.ips-footer--light .ips-footer__legal { display: block; max-width: 900px; margin: 0 auto 12px; font-size: 15px; line-height: 1.7; color: #999; }
+.ips-footer--light .ips-footer__copy { font-size: 17px; color: #999; margin: 0; }
+@media (max-width: 640px) { .ips-footer.ips-footer--light { padding: 36px 16px 16px; } .ips-footer--light .ips-footer__links a { display: inline-block; padding: 4px 8px; } }
