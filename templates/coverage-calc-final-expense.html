@@ -1,0 +1,64 @@
+<!-- Coverage calculator — FINAL EXPENSE question set (mirrors TheBurialInsurance.com).
+     Same shared engine as the life-needs set; only the questions differ. For burial /
+     final-expense sites (TBI, and GLI if wanted). CTA auto-fills from IPS_CONFIG. -->
+<section class="ips-cc" data-ips-cc data-cc-base="0" aria-label="Final expense coverage calculator">
+  <div class="ips-cc__card">
+    <div class="ips-cc__hd">
+      <span class="ips-cc__eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3 8-8M4 12a8 8 0 1 0 16 0 8 8 0 0 0-16 0"/></svg>
+        Coverage calculator
+      </span>
+      <h2>How much coverage do you actually need?</h2>
+      <p class="ips-cc__sub">A quick estimate in about a minute — no contact information required.</p>
+    </div>
+    <div class="ips-cc__body">
+      <div class="ips-cc__q">
+        <label>1. What kind of service?</label>
+        <div class="ips-cc__opts" data-cc-choice="svc">
+          <button type="button" class="ips-cc__opt" data-cc-v="9000" aria-pressed="true">Traditional burial</button>
+          <button type="button" class="ips-cc__opt" data-cc-v="6300">Cremation + service</button>
+          <button type="button" class="ips-cc__opt" data-cc-v="2500">Direct cremation</button>
+        </div>
+      </div>
+      <div class="ips-cc__q">
+        <label>2. Add a cemetery plot &amp; headstone?</label>
+        <div class="ips-cc__opts" data-cc-choice="plot">
+          <button type="button" class="ips-cc__opt" data-cc-v="0" aria-pressed="true">No</button>
+          <button type="button" class="ips-cc__opt" data-cc-v="4000">Yes, add $4,000</button>
+        </div>
+      </div>
+      <div class="ips-cc__q">
+        <label>3. Debts to pay off — cards, loans: <span class="ips-cc__val" data-cc-out="debt">$5,000</span></label>
+        <input class="ips-cc__range" type="range" data-cc-key="debt" min="0" max="30000" step="500" value="5000" aria-label="Debts to pay off">
+      </div>
+      <div class="ips-cc__q">
+        <label>4. Final medical bills: <span class="ips-cc__val" data-cc-out="med">$2,000</span></label>
+        <input class="ips-cc__range" type="range" data-cc-key="med" min="0" max="15000" step="500" value="2000" aria-label="Final medical bills">
+      </div>
+      <div class="ips-cc__q">
+        <label>5. Leave a gift for family (optional): <span class="ips-cc__val" data-cc-out="gift">$0</span></label>
+        <input class="ips-cc__range" type="range" data-cc-key="gift" min="0" max="10000" step="500" value="0" aria-label="Gift for family">
+      </div>
+      <div class="ips-cc__q">
+        <label>6. Money already set aside (we subtract it): <span class="ips-cc__val" data-cc-out="save">$0</span></label>
+        <input class="ips-cc__range" type="range" data-cc-key="save" data-cc-op="sub" min="0" max="25000" step="500" value="0" aria-label="Money already set aside">
+      </div>
+
+      <div class="ips-cc__result">
+        <div class="ips-cc__result-lab">Suggested coverage</div>
+        <div class="ips-cc__result-amt" data-cc-total>$0</div>
+        <div class="ips-cc__bd">
+          <div class="ips-cc__bd-row"><span>Service</span><span data-cc-bd="svc">$0</span></div>
+          <div class="ips-cc__bd-row"><span>Cemetery plot &amp; headstone</span><span data-cc-bd="plot">$0</span></div>
+          <div class="ips-cc__bd-row"><span>Debts to pay off</span><span data-cc-bd="debt">$0</span></div>
+          <div class="ips-cc__bd-row"><span>Final medical bills</span><span data-cc-bd="med">$0</span></div>
+          <div class="ips-cc__bd-row"><span>Gift for family</span><span data-cc-bd="gift">$0</span></div>
+          <div class="ips-cc__bd-row"><span>Money set aside</span><span data-cc-bd="save">$0</span></div>
+          <div class="ips-cc__bd-row ips-cc__bd-row--tot"><span>Suggested coverage</span><span data-cc-total>$0</span></div>
+        </div>
+        <a class="ips-btn ips-btn--cta" href="#" data-ips-text="ctaLabel" data-ips-attr="href:quoteUrl">Get My Free Quote</a>
+      </div>
+      <p class="ips-cc__fine">Estimate only, for education — not a quote or an application. Your actual need may differ.</p>
+    </div>
+  </div>
+</section>

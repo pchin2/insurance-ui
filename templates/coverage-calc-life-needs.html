@@ -1,0 +1,63 @@
+<!-- Coverage calculator — LIFE INSURANCE NEEDS (DIME) question set.
+     Drop this block on any life-insurance site (LIH, PWP). Styling + math come from the
+     shared bundle; it themes to the site's --ips-primary and the CTA auto-fills from
+     IPS_CONFIG (label + quote URL). Edit copy / preset numbers freely per site. -->
+<section class="ips-cc" data-ips-cc data-cc-base="10000" aria-label="Life insurance needs calculator">
+  <div class="ips-cc__card">
+    <div class="ips-cc__hd">
+      <span class="ips-cc__eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3 8-8M4 12a8 8 0 1 0 16 0 8 8 0 0 0-16 0"/></svg>
+        Coverage calculator
+      </span>
+      <h2>How much life insurance do you actually need?</h2>
+      <p class="ips-cc__sub">A quick estimate in about a minute — no contact information required.</p>
+    </div>
+    <div class="ips-cc__body">
+      <div class="ips-cc__q">
+        <label>1. How many years of income should it replace?</label>
+        <div class="ips-cc__opts" data-cc-mult="inc">
+          <button type="button" class="ips-cc__opt" data-cc-v="5">5 years</button>
+          <button type="button" class="ips-cc__opt" data-cc-v="10" aria-pressed="true">10 years</button>
+          <button type="button" class="ips-cc__opt" data-cc-v="15">15 years</button>
+          <button type="button" class="ips-cc__opt" data-cc-v="20">20 years</button>
+        </div>
+      </div>
+      <div class="ips-cc__q">
+        <label>2. Your yearly income: <span class="ips-cc__val" data-cc-out="inc">$60,000</span></label>
+        <input class="ips-cc__range" type="range" data-cc-key="inc" min="0" max="200000" step="5000" value="60000" aria-label="Yearly income">
+      </div>
+      <div class="ips-cc__q">
+        <label>3. Mortgage or rent left to pay off: <span class="ips-cc__val" data-cc-out="mort">$150,000</span></label>
+        <input class="ips-cc__range" type="range" data-cc-key="mort" min="0" max="500000" step="10000" value="150000" aria-label="Mortgage or rent">
+      </div>
+      <div class="ips-cc__q">
+        <label>4. Other debts — cards, loans, car: <span class="ips-cc__val" data-cc-out="debt">$20,000</span></label>
+        <input class="ips-cc__range" type="range" data-cc-key="debt" min="0" max="100000" step="5000" value="20000" aria-label="Other debts">
+      </div>
+      <div class="ips-cc__q">
+        <label>5. Money for children's education: <span class="ips-cc__val" data-cc-out="edu">$0</span></label>
+        <input class="ips-cc__range" type="range" data-cc-key="edu" min="0" max="200000" step="10000" value="0" aria-label="Children's education">
+      </div>
+      <div class="ips-cc__q">
+        <label>6. Money already saved or insured (we subtract it): <span class="ips-cc__val" data-cc-out="save">$0</span></label>
+        <input class="ips-cc__range" type="range" data-cc-key="save" data-cc-op="sub" min="0" max="500000" step="10000" value="0" aria-label="Money already saved or insured">
+      </div>
+
+      <div class="ips-cc__result">
+        <div class="ips-cc__result-lab">Suggested coverage</div>
+        <div class="ips-cc__result-amt" data-cc-total>$0</div>
+        <div class="ips-cc__bd">
+          <div class="ips-cc__bd-row"><span>Income replacement <span class="ips-cc__note" data-cc-note="inc"></span></span><span data-cc-bd="inc">$0</span></div>
+          <div class="ips-cc__bd-row"><span>Mortgage / rent</span><span data-cc-bd="mort">$0</span></div>
+          <div class="ips-cc__bd-row"><span>Other debts</span><span data-cc-bd="debt">$0</span></div>
+          <div class="ips-cc__bd-row"><span>Children's education</span><span data-cc-bd="edu">$0</span></div>
+          <div class="ips-cc__bd-row"><span>Final expenses</span><span data-cc-bd="base">$10,000</span></div>
+          <div class="ips-cc__bd-row"><span>Money already saved / insured</span><span data-cc-bd="save">$0</span></div>
+          <div class="ips-cc__bd-row ips-cc__bd-row--tot"><span>Suggested coverage</span><span data-cc-total>$0</span></div>
+        </div>
+        <a class="ips-btn ips-btn--cta" href="#" data-ips-text="ctaLabel" data-ips-attr="href:quoteUrl">Get My Free Quote</a>
+      </div>
+      <p class="ips-cc__fine">Estimate only, for education — not a quote or an application. Your actual need may differ.</p>
+    </div>
+  </div>
+</section>

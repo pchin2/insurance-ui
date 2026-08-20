@@ -40,6 +40,8 @@ four copies.
 **SHARED (belongs in `src/`):** header/nav + sticky-shrink, footer, buttons
 (including the universal amber CTA `#F0A01E`), typography scale, spacing scale,
 cards, bubbles (including the mobile bubble), forms, quote-CTA band styling,
+the coverage calculator (one shared engine + per-site question templates in
+`templates/`; CTA label + destination come from `IPS_CONFIG`),
 mobile/responsive breakpoints, animations, and the common content blocks
 (Quick Answer, Key Takeaways, Qualification Meter, Pros/Cons, FAQ accordion,
 Bottom Line, tables, chips, TOC/byline styling).

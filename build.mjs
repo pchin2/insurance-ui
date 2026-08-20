@@ -12,6 +12,7 @@ const CSS_ORDER = [
   "src/components/footer.css",
   "src/components/bubble.css",
   "src/components/quote-cta.css",
+  "src/components/coverage-calc.css",
   "src/responsive/breakpoints.css",
   // Per-site brand layer LAST so it overrides the shared defaults:
   "src/sites/tbi.css",

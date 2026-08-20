@@ -2,12 +2,14 @@
 import { resolveConfig, applyConfig } from "./site-config.js";
 import { initHeader } from "./header.js";
 import { initBubble } from "./bubble.js";
+import { initCoverageCalc } from "./coverage-calc.js";
 
 function boot() {
   const cfg = resolveConfig();
   applyConfig(cfg);
   initHeader();
   initBubble();
+  initCoverageCalc();
   // Small public API (also lets the preview re-render when switching brands).
   window.IPS = {
     version: "0.1.0",

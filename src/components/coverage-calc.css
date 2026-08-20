@@ -1,0 +1,66 @@
+/* Coverage calculator — shared component. Themed entirely off --ips-primary
+   (per-site ramp) + the universal amber CTA, so one calculator matches every site. */
+.ips-cc { max-width: var(--ips-maxw); margin-inline: auto; }
+.ips-cc__card {
+  background: var(--ips-surface); border: 1px solid var(--ips-line);
+  border-radius: 14px; overflow: hidden; box-shadow: var(--ips-shadow-2);
+}
+.ips-cc__hd { padding: 28px 28px 6px; border-top: 5px solid var(--ips-primary); }
+.ips-cc__eyebrow {
+  display: inline-flex; align-items: center; gap: 7px;
+  font: 700 12px/1 var(--ips-font); letter-spacing: .12em; text-transform: uppercase;
+  color: var(--ips-primary); margin-bottom: 12px;
+}
+.ips-cc__eyebrow svg { width: 16px; height: 16px; }
+.ips-cc h2 {
+  font-family: var(--ips-font-head); font-weight: 700; color: var(--ips-primary);
+  font-size: var(--ips-fs-h2); line-height: 1.15; margin: 0 0 6px;
+}
+.ips-cc__sub { margin: 0 0 6px; color: var(--ips-muted); font-size: 1rem; }
+.ips-cc__body { padding: 8px 28px 24px; }
+
+.ips-cc__q { padding: 18px 0; border-top: 1px solid var(--ips-line); }
+.ips-cc__q:first-child { border-top: 0; }
+.ips-cc__q > label {
+  display: block; font-weight: 700; color: var(--ips-primary);
+  margin-bottom: 12px; font-size: 1.125rem;
+}
+.ips-cc__q .ips-cc__val { color: var(--ips-primary); font-weight: 800; }
+
+.ips-cc__opts { display: flex; flex-wrap: wrap; gap: 10px; }
+.ips-cc__opt {
+  flex: 1 1 auto; min-height: var(--ips-tap); padding: 0 16px;
+  border: 2px solid var(--ips-line); border-radius: var(--ips-btn-radius);
+  background: var(--ips-surface); color: var(--ips-primary);
+  font: 700 1rem/1 var(--ips-font); cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: border-color var(--ips-dur) var(--ips-ease), background var(--ips-dur) var(--ips-ease);
+}
+.ips-cc__opt:hover { border-color: var(--ips-primary); }
+.ips-cc__opt[aria-pressed="true"] { background: var(--ips-primary); color: var(--ips-primary-ink); border-color: var(--ips-primary); }
+
+.ips-cc__range { width: 100%; height: 40px; accent-color: var(--ips-primary); cursor: pointer; }
+
+.ips-cc__result {
+  background: var(--ips-primary); color: var(--ips-primary-ink);
+  border-radius: 12px; padding: 22px 24px; margin-top: 10px;
+}
+.ips-cc__result-lab { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+.ips-cc__result-amt {
+  font-family: var(--ips-font-head); font-weight: 700; font-size: 2.75rem;
+  line-height: 1.05; margin: 2px 0 14px;
+}
+.ips-cc__bd { border-top: 1px solid rgba(255,255,255,.2); padding-top: 12px; font-size: .9375rem; }
+.ips-cc__bd-row { display: flex; justify-content: space-between; padding: 4px 0; opacity: .94; }
+.ips-cc__bd-row span:last-child { font-variant-numeric: tabular-nums; }
+.ips-cc__bd-row--tot {
+  font-weight: 800; opacity: 1; border-top: 1px solid rgba(255,255,255,.2);
+  margin-top: 8px; padding-top: 10px; font-size: 1rem;
+}
+.ips-cc__note { opacity: .7; }
+
+/* CTA reuses the shared amber button; full-width on small screens. */
+.ips-cc .ips-btn--cta { margin-top: 18px; width: 100%; }
+@media (min-width: 520px) { .ips-cc .ips-btn--cta { width: auto; } }
+
+.ips-cc__fine { color: var(--ips-muted); font-size: 13px; margin-top: 14px; }
